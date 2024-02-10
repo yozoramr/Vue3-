@@ -1,9 +1,6 @@
 <template>
   <div>
     <div class="mainBox">
-      <div class="picTittle mainHeightImg">
-        <div class="logo mainHeightImg"></div>
-      </div>
       <div class="userBox">
         <div class="user">
           <el-form
@@ -47,9 +44,6 @@
               <div class="register">
                 <span @click="changeLogin">注册 →</span>
               </div>
-              <p>
-                仅用于IT培训教学使用,为保障您的个人信息安全,请勿向平台录入任何个人敏感信息(如手机号、身份证号等)!
-              </p>
             </div>
           </el-form>
           <el-form
