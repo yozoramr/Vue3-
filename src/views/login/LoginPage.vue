@@ -1,8 +1,7 @@
 <template>
-  <div>
-    <div class="mainBox">
-      <div class="userBox">
-        <div class="user">
+  <div class="mainBox">
+      <div class="user">
+        <div class="loginbox">
           <el-form
             :model="formLogin"
             :rules="rulesLogin"
@@ -16,6 +15,9 @@
                 class="userName"
                 v-model="formLogin.username"
               >
+                <template #prefix>
+                  <el-icon><User /></el-icon>
+                </template>
               </el-input>
             </el-form-item>
             <el-form-item prop="password">
@@ -25,16 +27,18 @@
                 v-model="formLogin.password"
                 type="password"
                 @keyup.enter="loginFormSubmit"
+                show-password
               >
+                <template #prefix>
+                  <el-icon><Lock /></el-icon>
+                </template>
               </el-input>
             </el-form-item>
             <div class="exWord">
-              <label>
                 <div class="memoryMe">
-                  <input type="checkbox" />
-                  <span>记住我</span>
+                    <input type="checkbox" id="checkboxID"/>
+                    <label for="checkboxID">记住我</label>
                 </div>
-              </label>
 
               <a href="#">忘记密码</a>
             </div>
@@ -55,13 +59,20 @@
             <h1>注册</h1>
             <el-form-item prop="username">
               <el-input
-                placeholder="请输入用户名"
+                placeholder="请输入用户名"  
                 class="userName"
-                v-model="formRegister.name"
-              ></el-input>
+                v-model="formRegister.username"
+              >
+                <template #prefix>
+                  <el-icon><Lock /></el-icon>
+                </template>
+              </el-input>
             </el-form-item>
             <el-form-item prop="password">
               <el-input placeholder="请输入密码" class="passWord" v-model="formRegister.password">
+                <template #prefix>
+                  <el-icon><Lock /></el-icon>
+                </template>
               </el-input>
             </el-form-item>
             <el-form-item prop="checkpass">
@@ -70,6 +81,9 @@
                 class="passWord"
                 v-model="formRegister.checkpass"
               >
+              <template #prefix>
+                  <el-icon><Lock /></el-icon>
+                </template>
               </el-input>
             </el-form-item>
 
@@ -82,7 +96,6 @@
           </el-form>
         </div>
       </div>
-    </div>
   </div>
 </template>
 <script setup>
@@ -115,11 +128,20 @@ const rulesLogin = ref({
       message: '请输入密码',
       trigger: 'blur'
     },
-    { min: 3, max: 10, message: '长度应在3到10个字符之间', trigger: 'blur' }
+    { min: 6, max: 15, message: '密码必须是 6-15位 的非空字符', trigger: 'blur' },
+    {
+      validator: (rule, value, callback) => {
+        if (value.includes(' ')){
+          callback(new Error('密码不能包含空格'))
+        }else{
+          callback
+        }
+      },
+      trigger: 'blur'
+    }
   ]
 })
 const loginFormSubmit = async () => {
-  // console.log(formLogin.value)
   await userLoginService(formLogin.value).then((value) => {
     console.log(value.data.message)
     ElMessage.success(value.data.message)
@@ -153,7 +175,17 @@ const rulesRegister = ref({
       message: '请输入密码',
       trigger: 'blur'
     },
-    { min: 3, max: 10, message: '长度应在3到10个字符之间', trigger: 'blur' }
+    { min: 6, max: 15, message: '密码必须是 6-15位 的非空字符', trigger: 'blur' },
+    {
+      validator: (rule, value, callback) => {
+        if (value.includes(' ')){
+          callback(new Error('密码不能包含空格'))
+        }else{
+          callback
+        }
+      },
+      trigger: 'blur'
+    }
   ],
   checkpass: [
     {
@@ -184,32 +216,35 @@ const registerForm = async () => {
 </script>
 
 <style scoped lang="less">
+
 .mainBox {
+  // width: 100vh;
+  height: 100vh;
   display: flex;
-  .picTittle {
-    display: flex;
-    align-items: center;
-    width: 960px;
-    height: 920px;
-    border-bottom-right-radius: 18px;
-    background-color: gray;
-    background-image: url('@/assets/LoginPage/download.jpg');
-    .logo {
-      background-image: url('@/assets/LoginPage/logo.png');
-      width: 100%;
-      height: 100px;
-      z-index: 1;
-    }
-  }
+  justify-content: center;
+  align-items: center;
+  background-color: #000084;
+  background-image: url("@/assets/main/login-bg.png");
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
   .user {
+    background-image: url("@/assets/main/login-dialog.png");
+    margin: 0, auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 960px;
-    height: 920px;
-    .login {
-      width: 480px;
-      background-color: #fff;
+    justify-content: end;
+    width: 1065px;
+    height: 570px;
+    .loginbox{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      height: 100%;
+      .login {
+      
+        background-color: #fff;
       h1 {
         font-size: 28px;
         line-height: 28px;
@@ -230,20 +265,20 @@ const registerForm = async () => {
         border-radius: 3px;
       }
       .exWord {
-        display: flex;
-        align-items: center;
-        position: relative;
         width: 480px;
         height: 84px;
         .memoryMe {
+          display: flex;
+          align-content: center;
           input {
             width: 14px;
             height: 14px;
           }
-          span {
+          label {
             margin-left: 8px;
             font-size: 12px;
             color: #606266;
+            line-height: 14px;
           }
         }
         a {
@@ -326,6 +361,8 @@ const registerForm = async () => {
         }
       }
     }
+    }
+
   }
 }
 </style>
