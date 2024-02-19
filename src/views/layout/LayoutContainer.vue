@@ -43,13 +43,19 @@ const squareUrl = userPicJpg
             <span>&nbsp;人员管理</span>
           </template>
         </el-menu-item>
-        <el-sub-menu index="3">
+        <el-menu-item index="3" @click="$router.push('/article/main')">
+          <template #title>
+            <el-icon :size="16"><Histogram /></el-icon>
+            <span>&nbsp;工单申请</span>
+          </template>
+        </el-menu-item>
+        <el-sub-menu index="4">
           <template #title>
             <el-icon :size="16"><UserFilled /></el-icon><span>&nbsp;个人中心</span>
           </template>
-          <el-menu-item index="3-1"><el-icon><User /></el-icon><span>基本资料</span></el-menu-item>
-          <el-menu-item index="3-2"><el-icon><Crop /></el-icon><span>更换头像</span></el-menu-item>
-          <el-menu-item index="3-3"><el-icon><EditPen /></el-icon><span>重置密码</span></el-menu-item>
+          <el-menu-item index="4-1"><el-icon><User /></el-icon><span>基本资料</span></el-menu-item>
+          <el-menu-item index="4-2"><el-icon><Crop /></el-icon><span>更换头像</span></el-menu-item>
+          <el-menu-item index="4-3"><el-icon><EditPen /></el-icon><span>重置密码</span></el-menu-item>
         </el-sub-menu>
       </el-menu>
 

@@ -8,12 +8,16 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/article/main'
+      redirect: '/article/indexStatus'
     },
     {
       path: '/article',
       component: () => import('@/views/layout/LayoutContainer.vue'),
       children: [
+        {
+          path: '/article/indexStatus',
+          component: () => import('@/views/indexStatus/indexStatus.vue')
+        },
         {
           path: '/article/main',
           component: () => import('@/views/article/ArticleSelect.vue')
