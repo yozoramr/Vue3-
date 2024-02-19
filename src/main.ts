@@ -8,6 +8,8 @@ import '@/styles/common.css'
 
 import '@/assets/styles/main.css'
 
+
+
 // element 图标全局注册
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 const app = createApp(App)

@@ -4,6 +4,8 @@ import { useCounterStore } from '@/stores/modules/user'
 import { onMounted } from 'vue'
 import { userGetinfoService } from '@/api/user'
 import router from '@/router';
+import layoutNav from "@/views/layout/components/layoutNav.vue"
+import userPicJpg from '@/assets/userPic.jpg'
 
 const CounterStore = useCounterStore()
 onMounted(() => {
@@ -18,27 +20,27 @@ const btnLogout = () => {
   CounterStore.removeUser()
   router.push('/login')
 }
+const squareUrl = userPicJpg
 
 </script>
 <template>
   
   <div class="totalLayout">
-
     <el-aside>
-      <div class="logobox"><img src="@/assets/logo2.png" alt="#"></div>
+      <div class="logobox"><img src="@\assets\logo(200-100).png" alt="#"></div>
       <el-menu
-      active-text-color="#ffd04b"
-      background-color="#232323"
-      text-color = '#ffffff'
+      active-text-color="#3b9cff"
+      background-color="#fff"
+      text-color = '#38383a'
       >
         <el-menu-item index="1" @click="$router.push('/article/select')">
           <el-icon :size="16"><Menu /></el-icon>
-          <span>&nbsp;文章分类</span>
+          <span>&nbsp;首页数据</span>
         </el-menu-item>
         <el-menu-item index="2" @click="$router.push('/article/manage')">
           <template #title>
             <el-icon :size="16"><Histogram /></el-icon>
-            <span>&nbsp;文章管理</span>
+            <span>&nbsp;人员管理</span>
           </template>
         </el-menu-item>
         <el-sub-menu index="3">
@@ -54,37 +56,21 @@ const btnLogout = () => {
     </el-aside>
     <el-container>
       <el-header>
-        <div class="userbox">
-          <div class="userInfo">用户名：{{ CounterStore?.user?.value?.username || '未登录' }}</div>
-          <el-dropdown>
-            <div class="userpic">
-              <el-avatar 
-              :size="40"
-              :src='userPic'
-              ></el-avatar>
-            </div>
-            <template #dropdown>
-              <el-dropdown-item>基本资料</el-dropdown-item>
-              <el-dropdown-item>更换头像</el-dropdown-item>
-              <el-dropdown-item>重置密码</el-dropdown-item>
-              <el-dropdown-item @click="btnLogout">退出登录</el-dropdown-item>
-            </template>
-          </el-dropdown>
-
-        </div>
+        <layoutNav></layoutNav>
       </el-header>
       <el-main>
         <router-view></router-view>
       </el-main>
-      <el-footer>大事件 © 2023 Created by 黑马程序员</el-footer>
     </el-container>
   </div>
 </template>
 <style lang="less" scoped>
 .totalLayout{
+  width: 100%;
+  height: 100vh;
   display: flex;
-  height: 950px;
   background-color: #f5f5f5;
+  overflow: hidden;
   .layoutEdit{
     position: fixed;
     z-index: 99;
@@ -92,15 +78,18 @@ const btnLogout = () => {
   .el-aside{
     width: 200px;
     display: inline-block;
-    background-color: #232323;
+    background-color: #fff;
+    border-right: 1px solid #e7e7e7;
     .logobox{
       width: 100%;
-      height: 120px;
+      height: 100px;
+      margin: 0;
+      padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       img{
-        width: 110px;
+        width: 100%;
         height: auto;
       }
     }
@@ -129,39 +118,12 @@ const btnLogout = () => {
     display: flex;
     background-color: #f5f5f5;
     .el-header{
-
+      margin: 0;
       padding: 0;
-      height: 60px;
-      background-color: #fff;
-      .userbox{
-        margin-right: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 100%;
-        .userInfo{
-          margin-left: 20px;
-        }
-        .el-dropdown{
-          .userpic{
-          display: flex;
-          align-items: center;
-          height: 100%;
-        }
-        }
 
-      }
     }
     .el-main{
-      padding: 20px;
-
-    }
-    .el-footer{
-      height: 60px;
-      font-size: 12px;
-      line-height: 60px;
-      color: #666;
-      text-align: center;
+      padding: 0;
     }
   }
 }

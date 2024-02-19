@@ -8,7 +8,6 @@ export const userRegisterService = (obj) => {
 
 // 登录验证
 export const userLoginService = (obj) => {
-  console.log(obj)
   return instance.post('/api/login/login', obj)
 }
 

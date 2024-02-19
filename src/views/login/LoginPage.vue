@@ -143,14 +143,14 @@ const rulesLogin = ref({
 })
 const loginFormSubmit = async () => {
   await userLoginService(formLogin.value).then((value) => {
-    console.log(value.data.message)
-    ElMessage.success(value.data.message)
+    ElMessage.success(value.data.msg)
     const useStore = useCounterStore()
     useStore.setToken(value.data.token)
+    console.log(value.data)
     router.push('/')
   },(reason) => {
-    console.log(reason.response.data.message)
-    ElMessage.error(reason.response.data.message)
+    console.log(reason.response.data.msg)
+    ElMessage.error(reason.response.data.msg)
   })
 }
 

@@ -48,7 +48,9 @@ const onRecompose = (row) => {
 <style lang="less" scoped>
 .mainbox {
   height: 100%;
+  padding: 20px;
   .el-card {
+    
     min-height: 800px;
     .header {
       display: flex;

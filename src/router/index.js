@@ -8,14 +8,14 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/article/select'
+      redirect: '/article/main'
     },
     {
       path: '/article',
       component: () => import('@/views/layout/LayoutContainer.vue'),
       children: [
         {
-          path: '/article/select',
+          path: '/article/main',
           component: () => import('@/views/article/ArticleSelect.vue')
         },
         {
