@@ -3,7 +3,6 @@ import userPicJpg from '@/assets/userPic.jpg'
 const squareUrl = userPicJpg
 </script>
 <template>
-  <el-header>
     <div class="userNav">
       <el-breadcrumb :separator-icon="ArrowRight">
         <el-breadcrumb-item :to="{ path: '/article/main' }"
@@ -16,12 +15,12 @@ const squareUrl = userPicJpg
         <el-avatar shape="square" :size="40" :src="squareUrl" />
       </div>
     </div>
-  </el-header>
 </template>
 
 <style lang="less" scoped>
       .userNav{
         margin: 20px 20px 0 20px;
+        padding: 0;
         height: 60px;
         background-color: #fff;
         display: flex;

@@ -39,39 +39,43 @@ const squareUrl = userPicJpg
         </el-menu-item>
         <el-menu-item index="2" @click="$router.push('/article/manage')">
           <template #title>
-            <el-icon :size="16"><Histogram /></el-icon>
+            <el-icon :size="16"><Briefcase /></el-icon>
             <span>&nbsp;人员管理</span>
           </template>
         </el-menu-item>
         <el-menu-item index="3" @click="$router.push('/article/main')">
           <template #title>
-            <el-icon :size="16"><Histogram /></el-icon>
+            <el-icon :size="16"><Stamp /></el-icon>
             <span>&nbsp;工单申请</span>
           </template>
         </el-menu-item>
-        <el-sub-menu index="4">
+        <el-menu-item index="4" @click="$router.push('/article/main')">
+          <template #title>
+            <el-icon :size="16"><Flag /></el-icon>
+            <span>&nbsp;门店坐标</span>
+          </template>
+        </el-menu-item>
+        <el-sub-menu index="5">
           <template #title>
             <el-icon :size="16"><UserFilled /></el-icon><span>&nbsp;个人中心</span>
           </template>
-          <el-menu-item index="4-1"><el-icon><User /></el-icon><span>基本资料</span></el-menu-item>
-          <el-menu-item index="4-2"><el-icon><Crop /></el-icon><span>更换头像</span></el-menu-item>
-          <el-menu-item index="4-3"><el-icon><EditPen /></el-icon><span>重置密码</span></el-menu-item>
+          <el-menu-item index="5-1"><el-icon><User /></el-icon><span>基本资料</span></el-menu-item>
+          <el-menu-item index="5-2"><el-icon><Crop /></el-icon><span>更换头像</span></el-menu-item>
+          <el-menu-item index="5-3"><el-icon><EditPen /></el-icon><span>重置密码</span></el-menu-item>
         </el-sub-menu>
       </el-menu>
 
     </el-aside>
-    <el-container>
-      <el-header>
-        <layoutNav></layoutNav>
-      </el-header>
-      <el-main>
-        <router-view></router-view>
-      </el-main>
-    </el-container>
+    <div class="viewLayout">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 <style lang="less" scoped>
+
 .totalLayout{
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -131,6 +135,9 @@ const squareUrl = userPicJpg
     .el-main{
       padding: 0;
     }
+  }
+  .viewLayout{
+    flex-grow: 1;
   }
 }
 </style>
