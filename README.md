@@ -12,7 +12,7 @@
 
 后台接口地址：
 
-> www.xxx.com
+> https://github.com/yozoramr/express-website
 
 
 
@@ -37,16 +37,35 @@ node .\app.js
 pnpm dev
 ```
 
+
+
 ## 技术栈
 
-- **框架选择**：基于 Vue3 + element-UI
-- **框架特色**：Vue全家桶 vue + vue-cli + vue-router + vuex + axios
+- **框架选择**：基于 Vue3 + element-UI + echarts
+- **框架特色**：Vue全家桶 + vue-cli +  vuex + + pinia + axios
 - **授权验证**：基于 JWT
 - **内置功能**：通用组件
 
+
+
+## 后端框架
+
+- **框架选择**：基于 nodejs + express +（mySQL 暂时删除）
+- **框架特色**：简易的后端接口，可连接本地数据库，通过简易的 SQL 语句实现增、删、查、改
+
+
+
 ## 功能实现
 
-| 功能     | 实现     |
-| -------- | -------- |
-| 登录验证 | JWT 认证 |
+| 功能       | 实现     |
+| ---------- | -------- |
+| 登录验证   | JWT 认证 |
+| 数据可视化 | echarts  |
 
+
+
+## 截图示例
+
+首页数据
+
+![image-20240221221912575](C:\Users\Yohane\AppData\Roaming\Typora\typora-user-images\image-20240221221912575.png)
