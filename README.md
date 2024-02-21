@@ -68,5 +68,4 @@ pnpm dev
 
 首页数据
 
-![](.\mdpic\首页数据.png)
-
+![首页数据](C:\Users\Yohane\Desktop\project\services\Vue3后台管理项目\README.assets\首页数据-1708526152111-2.png)
