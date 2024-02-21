@@ -68,4 +68,5 @@ pnpm dev
 
 首页数据
 
-![image-20240221221912575](C:\Users\Yohane\AppData\Roaming\Typora\typora-user-images\image-20240221221912575.png)
+![](.\mdpic\首页数据.png)
+
