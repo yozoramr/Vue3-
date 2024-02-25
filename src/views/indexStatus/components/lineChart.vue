@@ -1,5 +1,6 @@
 <script setup>
 import blueTheme from "@/echartstheme/blueTheme.json";
+import '@/styles/standardStyle.css'
 import * as echarts from "echarts";
 import { onMounted, ref } from "vue";
 echarts.registerTheme("blueTheme", blueTheme);
@@ -60,7 +61,7 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="mainBox">
+  <div class="mainBox commonShadows">
     <div ref="chartRef" class="myChart"></div>
   </div>
 </template>

@@ -1,4 +1,5 @@
 <script setup>
+import '@/styles/standardStyle.css'
 const props = defineProps({
   chartStatus: Object
 })
@@ -8,7 +9,7 @@ console.log(percent)
 
 </script>
 <template>
-  <div class="mainBoxItem">
+  <div class="mainBoxItem commonShadows">
     <div class="mainItem">
       <div class="tittle">
         <span>{{ chartStatus.tittle }}</span>

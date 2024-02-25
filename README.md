@@ -68,4 +68,4 @@ pnpm dev
 
 首页数据
 
-![首页数据](C:\Users\Yohane\Desktop\project\services\Vue3后台管理项目\README.assets\首页数据-1708526152111-2.png)
+![首页数据](https://a.yohane.one:2096/f/G3fr/%E9%A6%96%E9%A1%B5%E6%95%B0%E6%8D%AE.png)
