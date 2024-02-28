@@ -1,9 +1,10 @@
 <script setup>
 import userPicJpg from '@/assets/userPic.jpg'
+import '@/styles/standardStyle.css'
 const squareUrl = userPicJpg
 </script>
 <template>
-    <div class="userNav">
+    <div class="userNav commonShadows">
       <el-breadcrumb :separator-icon="ArrowRight">
         <el-breadcrumb-item :to="{ path: '/article/main' }"
           >EPMS</el-breadcrumb-item

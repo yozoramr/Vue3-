@@ -45,6 +45,7 @@ pnpm dev
 - **框架特色**：Vue全家桶 + vue-cli +  vuex + + pinia + axios
 - **授权验证**：基于 JWT
 - **内置功能**：通用组件
+- **模块化语义化**：项目模块化封装，遵守命名规则
 
 
 
@@ -57,10 +58,11 @@ pnpm dev
 
 ## 功能实现
 
-| 功能       | 实现     |
-| ---------- | -------- |
-| 登录验证   | JWT 认证 |
-| 数据可视化 | echarts  |
+| 功能       | 实现        |
+| ---------- | ----------- |
+| 登录验证   | JWT 认证    |
+| 基本功能   | elementplus |
+| 数据可视化 | echarts     |
 
 
 
@@ -68,4 +70,8 @@ pnpm dev
 
 首页数据
 
-![首页数据](https://a.yohane.one:2096/f/G3fr/%E9%A6%96%E9%A1%B5%E6%95%B0%E6%8D%AE.png)
+![首页数据](https://a.yohane.one:2096/f/4Wtp/%E9%A6%96%E9%A1%B5%E6%95%B0%E6%8D%AE.png)
+
+人员管理
+
+![人员管理](https://a.yohane.one:2096/f/LbT9/%E4%BA%BA%E5%91%98%E7%AE%A1%E7%90%86.png)

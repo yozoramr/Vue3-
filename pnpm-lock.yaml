@@ -18,8 +18,8 @@ dependencies:
     specifier: ^5.5.0
     version: 5.5.0
   element-plus:
-    specifier: ^2.4.4
-    version: 2.4.4(vue@3.3.13)
+    specifier: ^2.5.6
+    version: 2.5.6(vue@3.3.13)
   jsonwebtoken:
     specifier: ^9.0.2
     version: 9.0.2
@@ -1061,8 +1061,8 @@ packages:
       zrender: 5.5.0
     dev: false
 
-  /element-plus@2.4.4(vue@3.3.13):
-    resolution: {integrity: sha512-TlKubXJgxwhER0dw+8ULn9hr9kZjraV4R6Q/eidwWUwCKxwXYPBGmMKsZ/85tlxlhMYbcLZd/YZh6G3QkHX4fg==}
+  /element-plus@2.5.6(vue@3.3.13):
+    resolution: {integrity: sha512-zctKTiyIDmcnMp3K5WG1hglgraW9EbiCLiIDVtaMCS5mPMl2fRKdS0vOFGnECIq9taFoxnyoDwxHD81nv0B4RA==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:

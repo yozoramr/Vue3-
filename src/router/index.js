@@ -23,8 +23,8 @@ const router = createRouter({
           component: () => import('@/views/article/ArticleSelect.vue')
         },
         {
-          path: '/article/manage',
-          component: () => import('@/views/article/ArticleManage.vue')
+          path: '/article/personManage',
+          component: () => import('@/views/personManage/personManage.vue')
         },
       ]
     },
