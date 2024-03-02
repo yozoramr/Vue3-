@@ -70,8 +70,12 @@ pnpm dev
 
 首页数据
 
-![首页数据](https://a.yohane.one:2096/f/4Wtp/%E9%A6%96%E9%A1%B5%E6%95%B0%E6%8D%AE.png)
+![首页数据](https://a.yohane.one:2096/f/6zHG/%E9%A6%96%E9%A1%B5%E6%95%B0%E6%8D%AE.png)
 
 人员管理
 
-![人员管理](https://a.yohane.one:2096/f/LbT9/%E4%BA%BA%E5%91%98%E7%AE%A1%E7%90%86.png)
+![人员管理](https://a.yohane.one:2096/f/WDIK/%E4%BA%BA%E5%91%98%E7%AE%A1%E7%90%86.png)
+
+退出登录
+
+![退出登录](https://a.yohane.one:2096/f/gNXfo/%E9%80%80%E5%87%BA%E7%99%BB%E5%BD%95.png)

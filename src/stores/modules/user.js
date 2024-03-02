@@ -19,6 +19,7 @@ export const useCounterStore = defineStore(
     }
     const removeUser = () => {
       user.value = {}
+      token.value = ''
     }
     return {
       token,

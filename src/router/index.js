@@ -26,6 +26,10 @@ const router = createRouter({
           path: '/article/personManage',
           component: () => import('@/views/personManage/personManage.vue')
         },
+        {
+          path: '/article/personalcenter/logout',
+          component: () => import('@/views/logout/logout.vue')
+        }
       ]
     },
     {

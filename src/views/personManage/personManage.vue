@@ -1,19 +1,11 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import layoutEdit from "@/views/layout/components/layoutEdit.vue";
 import ManageEdit from "@/views/personManage/components/ManageEdit.vue";
 import layoutNav from "@/views/layout/components/layoutNav.vue";
 import "@/styles/standardStyle.css";
-const dialog = ref(null);
-const onRecompose = (row) => {
-  console.log(row);
-  dialog.value.dialogVisible = true;
-  dialog.value.formData = {
-    name: row.name,
-    nameEn: row.nickname,
-  };
-  dialog.value.openDialog("请修改名称");
-};
+import editDialog from "@/views/common/editDialog.vue";
+
 const formPage = ref({
   page: "2",
   size: "10",
@@ -98,7 +90,6 @@ const staffList = [
     operation: "删除",
   },
 ];
-const currentPage4 = ref(4);
 
 const drawer = ref();
 const onDraw = () => {
@@ -125,8 +116,19 @@ const departmentOptions = [
     label: "物流和供应链管理部",
   },
 ];
+const dialogVisible = ref(false);
+const deleteDialog = () => {
+  dialogVisible.value = true;
+};
+
 </script>
 <template>
+  <editDialog v-model:dialogVisible="dialogVisible"
+  title="信息">
+    <template #mainText> 
+      <span>是否删除用户</span>
+    </template>
+  </editDialog>
   <div class="mainbox">
     <layoutNav></layoutNav>
     <div class="personManage">
@@ -164,7 +166,7 @@ const departmentOptions = [
               <el-table-column prop="state" label="状态" width="300" />
               <el-table-column prop="operation" label="操作" width="300">
                 <el-button type="primary" @click="onDraw">编辑</el-button>
-                <el-button type="danger" @click="dialogVisible = false">
+                <el-button type="danger" @click="deleteDialog">
                   删除
                 </el-button>
               </el-table-column>
@@ -216,7 +218,7 @@ const departmentOptions = [
             justify-content: flex-end;
             margin-top: 12px;
             gap: 20px;
-            .tittleNav{
+            .tittleNav {
               font-size: 20px;
               font-weight: 520;
               margin-right: auto;

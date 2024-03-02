@@ -62,7 +62,7 @@ const squareUrl = userPicJpg
           <el-menu-item index="5-1"><el-icon><User /></el-icon><span>基本资料</span></el-menu-item>
           <el-menu-item index="5-2"><el-icon><Crop /></el-icon><span>更换头像</span></el-menu-item>
           <el-menu-item index="5-3"><el-icon><EditPen /></el-icon><span>重置密码</span></el-menu-item>
-          <el-menu-item index="5-4"><el-icon><SwitchButton /></el-icon><span>退出登录</span></el-menu-item>
+          <el-menu-item index="5-4" @click="$router.push('/article/personalcenter/logout')"><el-icon><SwitchButton /></el-icon><span>退出登录</span></el-menu-item>
         </el-sub-menu>
       </el-menu>
 
