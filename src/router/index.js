@@ -8,28 +8,28 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/article/indexStatus'
+      redirect: '/epms/indexStatus'
     },
     {
-      path: '/article',
+      path: '/epms',
       component: () => import('@/views/layout/LayoutContainer.vue'),
       children: [
         {
-          path: '/article/indexStatus',
+          path: '/epms/indexStatus',
           component: () => import('@/views/indexStatus/indexStatus.vue')
         },
         {
-          path: '/article/main',
-          component: () => import('@/views/article/ArticleSelect.vue')
-        },
-        {
-          path: '/article/personManage',
+          path: '/epms/personManage',
           component: () => import('@/views/personManage/personManage.vue')
         },
         {
-          path: '/article/personalcenter/logout',
+          path: '/epms/personalcenter/logout',
           component: () => import('@/views/logout/logout.vue')
-        }
+        },
+        {
+          path: '/epms/ordering',
+          component: () => import('@/views/ordering/ordering.vue')
+        },
       ]
     },
     {

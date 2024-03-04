@@ -1,18 +1,26 @@
 <script setup>
+import { ref } from 'vue'
 import userPicJpg from '@/assets/userPic.jpg'
 import '@/styles/standardStyle.css'
 const squareUrl = userPicJpg
+const props = defineProps({
+  msgNav: {
+    type: Array,
+    default: () => []
+  }
+})
+const msgNav = ref(props.msgNav)
 </script>
 <template>
     <div class="userNav commonShadows">
-      <el-breadcrumb :separator-icon="ArrowRight">
+      <el-breadcrumb >
         <el-breadcrumb-item :to="{ path: '/article/main' }"
           >EPMS</el-breadcrumb-item
         >
-        <el-breadcrumb-item>首页数据</el-breadcrumb-item>
+        <el-breadcrumb-item>{{ msgNav[0] }}</el-breadcrumb-item>
       </el-breadcrumb>
       <div class="userBox">
-        <span class="greeting">早上好！ admin</span>
+        <span class="greeting">早上好！ 张思远</span>
         <el-avatar shape="square" :size="40" :src="squareUrl" />
       </div>
     </div>

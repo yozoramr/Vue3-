@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref, watch } from 'vue'
-import { ElMessageBox } from 'element-plus'
+import { ref, watch } from 'vue'
 
 const props = defineProps({
   dialogVisible: Boolean,

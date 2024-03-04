@@ -5,7 +5,7 @@ import ManageEdit from "@/views/personManage/components/ManageEdit.vue";
 import layoutNav from "@/views/common/layoutNav.vue";
 import "@/styles/standardStyle.css";
 import editDialog from "@/views/common/editDialog.vue";
-const crumbStatus: string[] = ['人员管理'];
+const crumbStatus: string[] = ['工单申请'];
 const formPage = ref({
   page: "2",
   size: "10",
@@ -25,20 +25,6 @@ interface IStaff {
   operation: string
 }
 const staffList: IStaff[] = [
-  {
-    name: "李敏",
-    department: "产品研发部",
-    hiredate: "2022.2.14",
-    state: "在职",
-    operation: "删除",
-  },
-  {
-    name: "陈洋娜",
-    department: "运营部",
-    hiredate: "2022.08.07",
-    state: "在职",
-    operation: "删除",
-  },
   {
     name: "杨敏",
     department: "产品研发部",
@@ -97,11 +83,6 @@ const staffList: IStaff[] = [
   },
 ];
 
-const drawer = ref();
-const onDraw = () => {
-  drawer.value.drawerVisible = true;
-  console.log(drawer.value);
-};
 interface Idepartment {
   value: string,
   label: string
@@ -132,10 +113,10 @@ const deleteDialog = () => {
 };
 
 </script>
+
 <template>
-  <editDialog v-model:dialogVisible="dialogVisible"
-  title="信息">
-    <template #mainText> 
+  <editDialog v-model:dialogVisible="dialogVisible" title="信息">
+    <template #mainText>
       <span>是否删除用户</span>
     </template>
   </editDialog>
@@ -147,20 +128,18 @@ const deleteDialog = () => {
         <div class="select">
           <el-form :inline="true">
             <div class="selectNav">
-              <div class="tittleNav">人员管理</div>
+              <div class="tittleNav">工单申请</div>
+              <div class="orderStep">
+                <el-steps style="max-width: 600px" :active="1" align-center>
+                  <el-step title="提交"/>
+                  <el-step title="审查"/>
+                  <el-step title="审批"/>
+                </el-steps>
+              </div>
               <el-form-item>
-                <el-select
-                  v-model="departmentSatus"
-                  class="m-2"
-                  placeholder="请选择部门"
-                  style="width: 240px"
-                >
-                  <el-option
-                    v-for="item in departmentOptions"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  />
+                <el-select v-model="departmentSatus" class="m-2" placeholder="请选择部门" style="width: 240px">
+                  <el-option v-for="item in departmentOptions" :key="item.value" :label="item.label"
+                    :value="item.value" />
                 </el-select>
               </el-form-item>
 
@@ -170,29 +149,15 @@ const deleteDialog = () => {
               </el-form-item>
             </div>
             <el-table class="staff" :data="staffList" style="width: 100%">
-              <el-table-column prop="name" label="姓名" width="300" />
-              <el-table-column prop="department" label="部门" width="350" />
-              <el-table-column prop="hiredate" label="入职时间" width="350" />
-              <el-table-column prop="state" label="状态" width="300" />
-              <el-table-column prop="operation" label="操作" width="300">
-                <el-button type="primary" @click="onDraw">编辑</el-button>
-                <el-button type="danger" @click="deleteDialog">
-                  删除
-                </el-button>
-              </el-table-column>
+              <el-table-column prop="name" label="姓名" width="200" />
+              <el-table-column prop="department" label="部门" width="250" />
+              <el-table-column prop="hiredate" label="入职时间" width="250" />
+              <el-table-column prop="state" label="状态" width="200" />
             </el-table>
             <div class="demo-pagination-block">
-              <el-pagination
-                v-model:current-page="formPage.page"
-                v-model:page-size="formPage.size"
-                :small="true"
-                :disabled="false"
-                :background="true"
-                layout="prev, pager, next, jumper"
-                :total="50"
-                @size-change="handleSizeChange"
-                @current-change="handleCurrentChange"
-              />
+              <el-pagination v-model:current-page="formPage.page" v-model:page-size="formPage.size" :small="true"
+                :disabled="false" :background="true" layout="prev, pager, next, jumper" :total="50"
+                @size-change="handleSizeChange" @current-change="handleCurrentChange" />
             </div>
           </el-form>
         </div>
@@ -201,9 +166,11 @@ const deleteDialog = () => {
     </div>
   </div>
 </template>
+
 <style lang="less" scoped>
 .mainbox {
   height: 100%;
+
   .personManage {
     margin: 20px 20px 0 20px;
     box-shadow: none;
@@ -220,30 +187,42 @@ const deleteDialog = () => {
         width: 100%;
         justify-content: space-between;
         align-items: center;
+
         .el-form {
           width: 100%;
           padding: 0 20px;
+
           .selectNav {
             display: flex;
             justify-content: flex-end;
             margin-top: 12px;
             gap: 20px;
+
             .tittleNav {
               font-size: 20px;
               font-weight: 520;
               margin-right: auto;
+              height: 20px;
             }
+
+            .orderStep{
+              width: 500px;
+              height: 100px;
+            }
+
             .el-form-item {
               padding: 0;
               margin: 0;
             }
           }
+
           .staff {
             margin-top: 12px;
           }
+
           .demo-pagination-block {
             margin-top: 40px;
-            float: right;
+            float: left;
           }
         }
       }

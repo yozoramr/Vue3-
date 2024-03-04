@@ -14,10 +14,9 @@
                 placeholder="请输入用户名"
                 class="userName"
                 v-model="formLogin.username"
+                :prefix-icon="Search"
               >
-                <template #prefix>
-                  <el-icon><User /></el-icon>
-                </template>
+
               </el-input>
             </el-form-item>
             <el-form-item prop="password">
@@ -29,9 +28,7 @@
                 @keyup.enter="loginFormSubmit"
                 show-password
               >
-                <template #prefix>
-                  <el-icon><Lock /></el-icon>
-                </template>
+
               </el-input>
             </el-form-item>
             <div class="exWord">
@@ -63,16 +60,12 @@
                 class="userName"
                 v-model="formRegister.username"
               >
-                <template #prefix>
-                  <el-icon><Lock /></el-icon>
-                </template>
+
               </el-input>
             </el-form-item>
             <el-form-item prop="password">
               <el-input placeholder="请输入密码" class="passWord" v-model="formRegister.password">
-                <template #prefix>
-                  <el-icon><Lock /></el-icon>
-                </template>
+
               </el-input>
             </el-form-item>
             <el-form-item prop="checkpass">
@@ -81,9 +74,7 @@
                 class="passWord"
                 v-model="formRegister.checkpass"
               >
-              <template #prefix>
-                  <el-icon><Lock /></el-icon>
-                </template>
+
               </el-input>
             </el-form-item>
 

@@ -1,8 +1,9 @@
-<script setup>
-import layoutNav from "@/views/layout/components/layoutNav.vue";
+<script setup lang="ts">
+import layoutNav from "@/views/common/layoutNav.vue";
 import lineChart from "@/views/indexStatus/components/lineChart.vue"
 import wareHouse from "@/views/indexStatus/components/wareHouse.vue"
 import commonChart from "@/views/indexStatus/components/commonChart.vue"
+const crumbStatus: String[] = ['首页数据']
 const chartStatus1 = {
   tittle: "仓储容积",
   subheading: "Storage capacity",
@@ -30,9 +31,8 @@ const chartStatus4 = {
 </script>
 <template>
   <div class="mainBox">
-    
     <div class="statusBox">
-      <layoutNav></layoutNav>
+      <layoutNav :msg-nav="crumbStatus"></layoutNav>
       <div class="mainBox">
         <div class="picItem"><commonChart :chartStatus="chartStatus1"></commonChart></div>
         <div class="picItem"><commonChart :chartStatus="chartStatus2"></commonChart></div>

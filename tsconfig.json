@@ -1,11 +1,33 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
+  "compilerOptions": {
+    "target": "esnext",                      // 编译到的目标JavaScript版本
+    "module": "esnext",                      // 使用的模块系统
+    "strict": false,                          // 启用所有严格类型检查选项
+    "jsx": "preserve",                       // 对JSX代码不做转换，交给Vue编译器处理
+    "moduleResolution": "node",              // 模块解析策略
+    "experimentalDecorators": true,          // 启用装饰器
+    "skipLibCheck": true,                    // 跳过库文件的类型检查
+    "esModuleInterop": true,                 // 允许导入非ES模块
+    "allowSyntheticDefaultImports": true,    // 允许默认导入不是ES模块的模块
+    "sourceMap": true,                       // 生成源码的source map，便于调试
+    "baseUrl": ".",                          // 解析非相对模块名的基准目录
+    "paths": {                               // 路径映射，可以设置别名
+      "@/*": ["./src/*"]
     },
-    {
-      "path": "./tsconfig.app.json"
-    }
+    "lib": [                                 // 编译过程中需要引入的库文件的列表
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  },
+  "include": [                               // 指定需要编译的文件或目录
+    "src/**/*",                           // 包括src目录下的所有ts文件
+    "src/**/*.vue",                          // 包括src目录下的所有vue文件
+    "src/**/*.tsx"                           // 包括src目录下的所有tsx文件
+  ],
+  "exclude": [                               // 指定不需要编译的文件或目录
+    "node_modules",                          // 通常排除node_modules目录
+    "**/*.spec.ts"                           // 排除测试文件
   ]
 }

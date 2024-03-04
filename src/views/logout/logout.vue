@@ -1,11 +1,12 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import layoutEdit from "@/views/layout/components/layoutEdit.vue";
-import layoutNav from "@/views/layout/components/layoutNav.vue";
+import layoutNav from "@/views/common/layoutNav.vue";
 import "@/styles/standardStyle.css";
 import editDialog from "@/views/common/editDialog.vue"
 import { useCounterStore } from "@/stores/modules/user.js"
 import { useRouter } from 'vue-router'
+const crumbStatus = ['退出登录']
 const useCounter = useCounterStore()
 const router = useRouter()
 const dialog = ref(null);
@@ -40,7 +41,7 @@ const handleConfirm = () => {
     </template>
   </editDialog>
   <div class="mainbox">
-    <layoutNav></layoutNav>
+    <layoutNav :msg-nav="crumbStatus"></layoutNav>
     <div class="personManage">
       <layoutEdit class="layoutEdit" ref="dialog"></layoutEdit>
       <div class="mainCard commonShadows">
