@@ -30,7 +30,7 @@ const chartStatus4 = {
 }
 </script>
 <template>
-  <div class="mainBox">
+  <div class="mainBoxStatus">
     <div class="statusBox">
       <layoutNav :msg-nav="crumbStatus"></layoutNav>
       <div class="mainBox">
@@ -48,14 +48,7 @@ const chartStatus4 = {
   </div>
 </template>
 <style lang="less" scoped>
-.totalLayout{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  .viewLayout{
-    flex-grow: 1;
-  }
+.mainBoxStatus{
   .statusBox {
     width: 100%;
     height: 100vh;
@@ -66,6 +59,7 @@ const chartStatus4 = {
       display: flex;
       justify-content: space-between;
       width: 100%;
+      flex-wrap: nowrap;
       .picItem {
         margin: 0;
         padding: 0;
@@ -80,6 +74,7 @@ const chartStatus4 = {
       display: flex;
       justify-content: space-between;
       width: 100%;
+      flex-wrap: nowrap;
       .radarBox {
         margin-right: 13px;
         background-color: #fff;
@@ -103,8 +98,9 @@ const chartStatus4 = {
     align-items: center;
   }
 }
-
 }
+
+
 
 
 </style>

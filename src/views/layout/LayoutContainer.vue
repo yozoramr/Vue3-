@@ -80,6 +80,7 @@ const squareUrl = userPicJpg
   display: flex;
   background-color: #f5f5f5;
   overflow: hidden;
+  flex-wrap: nowrap;
   .layoutEdit{
     position: fixed;
     z-index: 99;
