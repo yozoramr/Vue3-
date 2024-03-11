@@ -81,7 +81,7 @@ pnpm dev
 
 退出登录
 
-![退出登录](https://a.yohane.one:2096/f/gNXfo/%E9%80%80%E5%87%BA%E7%99%BB%E5%BD%95.png)
+![退出登录](https://a.yohane.one:2096/f/8npC6/%E9%80%80%E5%87%BA%E7%99%BB%E5%BD%95.png)
 
 登录界面
 
