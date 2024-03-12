@@ -10,15 +10,30 @@ const value = ref(new Date());
 </script>
 <style lang="less" scoped>
 .calendarBox {
+  padding: 20px;
   width: 100%;
   height: 100%;
   overflow: hidden;
   .el-calendar {
-    width: 100%;
-    height: 100%;
-    :deep(.el-calendar-table .el-calendar-table__row) {
-      height: 1px;
-      overflow: none;
+    :deep(.el-calendar__header) {
+      padding-top: 2px;
+      padding-bottom: 6px;
+    }
+    :deep(.el-calendar-table thead th) {
+      padding-top: 2px;
+      padding-bottom: 6px;
+      font-size: 14px;
+    }
+    :deep(.el-calendar__body) {
+      padding-top: 0px;
+    }
+    :deep(.el-calendar-day) {
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 24px;
+      font-size: 12px;
     }
   }
 }

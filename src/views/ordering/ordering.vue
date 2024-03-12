@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import "@/styles/standardStyle.css";
-import layoutTitle from "@/views/common/layoutTitle.vue";
-import layoutNav from "@/views/common/layoutNav.vue";
+import { ref } from "vue"
+import "@/styles/standardStyle.css"
+import layoutTitle from "@/views/common/layoutTitle.vue"
+import layoutNav from "@/views/common/layoutNav.vue"
 import orderingStatus from "@/views/ordering/components/orderingStatus.vue";
 import orderingCalendar from "@/views/ordering/components/orderingCalendar.vue"
+import orderingDownCard from "@/views/ordering/components/orderingDownCard.vue"
 const crumbStatus: string[] = ["工单申请"];
 const dialogVisible = ref<boolean>(false);
 </script>
@@ -40,7 +41,9 @@ const dialogVisible = ref<boolean>(false);
             <orderingCalendar />
 
           </div>
-          <div class="downCard commonShadows"></div>
+          <div class="downCard commonShadows">
+            <orderingDownCard />
+          </div>
         </div>
       </div>
     </div>
@@ -131,7 +134,6 @@ const dialogVisible = ref<boolean>(false);
         flex-direction: column;
         gap: 20px;
         .upCard {
-          padding: 30px;
           height: 250px;
           background-color: #fff;
         }
