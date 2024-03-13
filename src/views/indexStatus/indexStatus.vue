@@ -3,7 +3,13 @@ import layoutNav from "@/views/common/layoutNav.vue";
 import lineChart from "@/views/indexStatus/components/lineChart.vue"
 import wareHouse from "@/views/indexStatus/components/wareHouse.vue"
 import commonChart from "@/views/indexStatus/components/commonChart.vue"
+import { usechartStatus } from '@/api/indexStatusApi.js'
 const crumbStatus: String[] = ['首页数据']
+usechartStatus().then(res => {
+  console.log(res)
+})
+
+
 const chartStatus1 = {
   tittle: "仓储容积",
   subheading: "Storage capacity",

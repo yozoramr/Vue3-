@@ -1,6 +1,5 @@
 import { useCounterStore } from '@/stores/modules/user'
 import axios from 'axios'
-import router from '@/router'
 
 const baseURL = 'http://127.0.0.1:2010'
 

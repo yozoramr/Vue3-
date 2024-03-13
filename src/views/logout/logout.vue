@@ -27,7 +27,7 @@ onMounted(() => {
 
 const handleConfirm = () => {
   console.log('退出登录')
-  console.log(useCounter.removeUser)
+  useCounter.removeUser()
   router.push('/login')
 }
 

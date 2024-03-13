@@ -25,3 +25,5 @@ export const containGetFormServerce = () => {
 export const containReFormServerce = (fromStata) => {
   return instance.post('/api/contain/getform', fromStata)
 }
+
+// 获取首页图表数据

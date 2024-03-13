@@ -5,18 +5,14 @@ const props = defineProps({
   chartStatus: Object
 })
 const percent = (props.chartStatus.numberMin / props.chartStatus.numberMax) * 100
-console.log(percent)
 const mainBoxRef = ref(null)
 onMounted(() => {
-  console.log(mainBoxRef)
   if(mainBoxRef.value){
       mainBoxRef.value.addEventListener('mouseenter', () => {
       mainBoxRef.value.classList.add('mainBoxFocus')
-      console.log('触发')
     })
     mainBoxRef.value.addEventListener('mouseleave', () => {
       mainBoxRef.value.classList.remove('mainBoxFocus')
-      console.log('离开')
     })
   }
 })

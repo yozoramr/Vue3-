@@ -7,7 +7,6 @@ import userPicJpg from '@/assets/userPic.jpg'
 
 const CounterStore = useCounterStore()
 onMounted(() => {
-  console.log(CounterStore.token)
   userGetinfoService(CounterStore.token).then(response => {
     CounterStore.user.value = response.data
   })
