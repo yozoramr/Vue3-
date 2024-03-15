@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
-// 用户模块 token setToken removeToken
+// 用户模块
 export const useCounterStore = defineStore(
   'big-user',
   () => {

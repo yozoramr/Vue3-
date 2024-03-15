@@ -1,34 +1,50 @@
 <script setup>
-import { useCounterStore } from '@/stores/modules/user'
-import { onMounted } from 'vue'
-import { userGetinfoService } from '@/api/user'
-import router from '@/router';
-import userPicJpg from '@/assets/userPic.jpg'
+import { useUiStore } from "@/stores/modules/ui.js";
+import { useCounterStore } from "@/stores/modules/user";
+import { onBeforeUnmount, onMounted, ref } from "vue";
+import { userGetinfoService } from "@/api/user";
+import router from "@/router";
+import userPicJpg from "@/assets/userPic.jpg";
+import debounce from "lodash/debounce";
 
-const CounterStore = useCounterStore()
+// 监视视口
+const uiStore = useUiStore();
+const monitorViewport = debounce(() => {
+  uiStore.setviewport(window.innerWidth, window.innerHeight);
+  console.log(uiStore.viewportWidth, uiStore.viewportHeight);
+},250);
+
 onMounted(() => {
-  userGetinfoService(CounterStore.token).then(response => {
-    CounterStore.user.value = response.data
-  })
-})
+  window.addEventListener("resize", monitorViewport);
+});
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", monitorViewport)
+});
+
+const CounterStore = useCounterStore();
+onMounted(() => {
+  userGetinfoService(CounterStore.token).then((response) => {
+    CounterStore.user.value = response.data;
+  });
+});
 
 const btnLogout = () => {
-  CounterStore.removeToken()
-  CounterStore.removeUser()
-  router.push('/login')
-}
-const squareUrl = userPicJpg
-
+  CounterStore.removeToken();
+  CounterStore.removeUser();
+  router.push("/login");
+};
+const squareUrl = userPicJpg;
 </script>
 <template>
-  
   <div class="totalLayout">
     <el-aside>
-      <div class="logobox"><img src="@\assets\logo(200-100).png" alt="#"></div>
+      <div class="logobox">
+        <img src="@\assets\logo(200-100).png" alt="#" />
+      </div>
       <el-menu
-      active-text-color="#3b9cff"
-      background-color="#fff"
-      text-color = '#38383a'
+        active-text-color="#3b9cff"
+        background-color="#fff"
+        text-color="#38383a"
       >
         <el-menu-item index="1" @click="$router.push('/epms/select')">
           <el-icon :size="16"><Menu /></el-icon>
@@ -54,15 +70,26 @@ const squareUrl = userPicJpg
         </el-menu-item>
         <el-sub-menu index="5">
           <template #title>
-            <el-icon :size="16"><UserFilled /></el-icon><span>&nbsp;个人中心</span>
+            <el-icon :size="16"><UserFilled /></el-icon
+            ><span>&nbsp;个人中心</span>
           </template>
-          <el-menu-item index="5-1"><el-icon><User /></el-icon><span>基本资料</span></el-menu-item>
-          <el-menu-item index="5-2"><el-icon><Crop /></el-icon><span>更换头像</span></el-menu-item>
-          <el-menu-item index="5-3"><el-icon><EditPen /></el-icon><span>重置密码</span></el-menu-item>
-          <el-menu-item index="5-4" @click="$router.push('/epms/personalcenter/logout')"><el-icon><SwitchButton /></el-icon><span>退出登录</span></el-menu-item>
+          <el-menu-item index="5-1"
+            ><el-icon><User /></el-icon><span>基本资料</span></el-menu-item
+          >
+          <el-menu-item index="5-2"
+            ><el-icon><Crop /></el-icon><span>更换头像</span></el-menu-item
+          >
+          <el-menu-item index="5-3"
+            ><el-icon><EditPen /></el-icon><span>重置密码</span></el-menu-item
+          >
+          <el-menu-item
+            index="5-4"
+            @click="$router.push('/epms/personalcenter/logout')"
+            ><el-icon><SwitchButton /></el-icon
+            ><span>退出登录</span></el-menu-item
+          >
         </el-sub-menu>
       </el-menu>
-
     </el-aside>
     <div class="viewLayout">
       <router-view></router-view>
@@ -70,8 +97,7 @@ const squareUrl = userPicJpg
   </div>
 </template>
 <style lang="less" scoped>
-
-.totalLayout{
+.totalLayout {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -80,17 +106,17 @@ const squareUrl = userPicJpg
   background-color: #f5f5f5;
   overflow: hidden;
   flex-wrap: nowrap;
-  .layoutEdit{
+  .layoutEdit {
     position: fixed;
     z-index: 99;
   }
-  .el-aside{
+  .el-aside {
     width: 200px;
     height: 100vh;
     display: inline-block;
     background-color: #fff;
     border-right: 1px solid #e7e7e7;
-    .logobox{
+    .logobox {
       width: 100%;
       height: 100px;
       margin: 0;
@@ -98,13 +124,13 @@ const squareUrl = userPicJpg
       display: flex;
       justify-content: center;
       align-items: center;
-      img{
+      img {
         width: 100%;
         height: auto;
       }
     }
 
-    .el-row{
+    .el-row {
       display: flex;
       align-items: center;
 
@@ -114,29 +140,28 @@ const squareUrl = userPicJpg
       font-size: 14px;
       line-height: 14px;
       color: #fff;
-      .el-col{
+      .el-col {
         display: inline-block;
         position: relative;
-        span{
+        span {
           position: absolute;
           top: 2px;
         }
       }
     }
   }
-  .el-container{
+  .el-container {
     display: flex;
     background-color: #f5f5f5;
-    .el-header{
+    .el-header {
       margin: 0;
       padding: 0;
-
     }
-    .el-main{
+    .el-main {
       padding: 0;
     }
   }
-  .viewLayout{
+  .viewLayout {
     flex-grow: 1;
   }
 }

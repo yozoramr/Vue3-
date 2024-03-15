@@ -67,11 +67,12 @@ onMounted(() => {
 </template>
 <style scoped lang="less">
 .mainBox {
-  padding: 0;
-  margin: 0;
+  display: flex;
   width: 100%;
   height: 100%;
   .myChart {
+    flex: 1;
+    margin-top: 10px;
     width: 100%;
     height: 100%;
   }

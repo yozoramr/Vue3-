@@ -1,15 +1,15 @@
-<script setup>
-// 引入store 其中useCounterStore必须为export的对象
-// import { useCounterStore } from '@/stores/login'
-// 调用并拿到仓库对象
-// const userStore = useCounterStore()
-import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
-</script>
 
 <template>
-  <el-config-provider :locale="zhCn">
+  <div class="body__app">
     <router-view></router-view>
-  </el-config-provider>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped lang='less'>
+.body__app{
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+
+

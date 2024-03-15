@@ -76,14 +76,12 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="mainBox commonShadows">
+  <div class="card--main commonShadows">
     <div ref="chartRef" class="myChart"></div>
   </div>
 </template>
 <style scoped lang="less">
-.mainBox {
-  padding: 0;
-  margin: 0;
+.card--main {
   width: 100%;
   height: 100%;
   .myChart {
