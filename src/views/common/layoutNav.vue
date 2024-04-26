@@ -35,7 +35,7 @@ const msgNav = ref(props.msgNav);
 
 <style lang="less" scoped>
 .card--nav {
-  width: 100%;
+  min-width: 200px;
   height: 72px;
   padding: 20px 20px 0 20px;
 

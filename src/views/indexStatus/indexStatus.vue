@@ -3,6 +3,7 @@ import layoutNav from "@/views/common/layoutNav.vue";
 import lineChart from "@/views/indexStatus/components/lineChart.vue";
 import wareHouse from "@/views/indexStatus/components/wareHouse.vue";
 import commonChart from "@/views/indexStatus/components/commonChart.vue";
+import layoutTips from "@/views/common/layoutTips.vue";
 import { usechartStatus } from "@/api/indexStatusApi.js";
 const crumbStatus: String[] = ["首页数据"];
 usechartStatus().then((res) => {
@@ -35,8 +36,8 @@ const chartStatus4 = {
 };
 </script>
 <template>
-  <div class="mainBoxStatus">
-    <div class="statusBox">
+  <div class="body__block">
+    <div class="block__block">
       <div class="header__nav">
         <layoutNav :msg-nav="crumbStatus"></layoutNav>
       </div>
@@ -61,17 +62,17 @@ const chartStatus4 = {
         <div class="item--lineBox"><lineChart></lineChart></div>
       </div>
       <div class="footer--tips">
-        <span>@2024 Excellent Product Management System</span>
+        <layoutTips />
       </div>
     </div>
   </div>
 </template>
 <style lang="less" scoped>
-.mainBoxStatus {
+.body__block {
   max-width: 100%;
   height: 100%;
 
-  .statusBox {
+  .block__block {
     width: 100%;
     height: 100%;
     display: flex;
@@ -81,7 +82,7 @@ const chartStatus4 = {
     align-items: stretch;
     flex-wrap: nowrap;
     .header__nav {
-      min-height: 0;
+      flex-shrink: 1;
     }
     .card__item--up {
 

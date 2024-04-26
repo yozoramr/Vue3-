@@ -92,7 +92,7 @@
 <script setup>
 import { ref } from 'vue'
 import { userRegisterService, userLoginService } from '@/api/user.js'
-import { useCounterStore } from '@/stores/login'
+import { useCounterStore } from '@/stores/counter.js'
 import { useRouter } from 'vue-router';
 const router = useRouter()
 const toggleState = ref(true)
@@ -138,7 +138,7 @@ const loginFormSubmit = async () => {
     const useStore = useCounterStore()
     useStore.setToken(value.data.token)
     console.log(value.data)
-    router.push('/')
+    router.push('/epms/')
   },(reason) => {
     console.log(reason.response.data.msg)
     ElMessage.error(reason.response.data.msg)

@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import layoutEdit from "@/views/layout/components/layoutEdit.vue";
-import ManageEdit from "@/views/personManage/components/ManageEdit.vue";
 import layoutNav from "@/views/common/layoutNav.vue";
 import "@/styles/standardStyle.css";
 import editDialog from "@/views/common/editDialog.vue";

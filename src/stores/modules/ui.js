@@ -8,6 +8,7 @@ export const useUiStore = defineStore(
     const setviewport = (width, height) => {
       viewportWidth.value = width
       viewportHeight.value = height
+      console.log(`width: ${viewportWidth.value} height: ${viewportHeight.value}`)
     }
     return {
       viewportWidth,
